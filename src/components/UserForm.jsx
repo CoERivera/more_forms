@@ -26,13 +26,16 @@ const UserForm = (props) => {
                     <br />
 
                     <input
-                        className="form-control"
+                        className="form-control mb-3"
                         type="text"
                         name="Name"
                         id="firstName"
                         onChange={(e) => setFirstName(e.target.value)}
                         value={firstName}
                     />
+                    {firstName.length > 0 && firstName.length < 2 ?
+                        <span>First Name must be at least 2 characters.</span> : ""
+                    }
                 </div>
 
                 <div className="mb-3">
@@ -42,13 +45,16 @@ const UserForm = (props) => {
                     <br />
 
                     <input
-                        className="form-control"
+                        className="form-control mb-3"
                         type="text"
                         name="Name"
                         id="lastName"
                         onChange={(e) => setLastName(e.target.value)}
                         value={lastName}
                     />
+                    {lastName.length > 0 && lastName.length < 2 ?
+                        <span>Last Name must be at least 2 characters.</span> : ""
+                    }
                 </div>
 
                 <div className="mb-3">
@@ -57,13 +63,16 @@ const UserForm = (props) => {
                     </label>
                     <br />
                     <input
-                        className="form-control"
+                        className="form-control mb-3"
                         type="text"
                         name="email"
                         id="email"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                     />
+                    {email.length > 0 && email.length < 2 ?
+                        <span>Email Address must be at least 2 characters.</span> : ""
+                    }
                 </div>
 
                 <div className="mb-3">
@@ -72,13 +81,19 @@ const UserForm = (props) => {
                     </label>
                     <br />
                     <input
-                        className="form-control"
+                        className="form-control mb-3"
                         type="password"
                         name="password"
                         id="password"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                     />
+                    {password.length > 0 && password.length < 8 ?
+                        <span>Password must be at least 8 characters.</span> : ""
+                    }
+                    {password.length > 0 && password != confirmPassword ?
+                        <span><br />Passwords must match.</span> : ""
+                    }
                 </div>
 
                 <div className="mb-3">
@@ -87,7 +102,7 @@ const UserForm = (props) => {
                     </label>
                     <br />
                     <input
-                        className="form-control"
+                        className="form-control mb-3"
                         type="password"
                         name="confirmPassword"
                         id="confirmPassword"
